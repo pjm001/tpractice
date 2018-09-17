@@ -14,14 +14,6 @@ chunk_size = 2048
 while True:
 	try:
 		r = sr.Recognizer()
-		r.energy_threshold = 4000
-		r.non_speaking_duration = 0.2
-		r.pause_threshold = 0.2
-
-		with sr.Microphone(device_index = 2,sample_rate = sample_rate, chunk_size = chunk_size) as source:
-	    		r.adjust_for_ambient_noise(source)
-	    		print("Say something!")
-	    		audio = r.listen(source)
 		try:
 			print("You said: " +r.recognize_google(audio, language = 'ko-KR'))
 			x = r.recognize_google(audio, language = 'ko-KR')
